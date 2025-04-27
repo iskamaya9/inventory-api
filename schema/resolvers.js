@@ -82,14 +82,13 @@ const resolvers = {
       if (!name || !email || !password || !role) {
         throw new Error("All fields (name, email, password, role) are required.");
       }
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(password, salt);
+      
 
       const [result] = await db.query(
         "INSERT INTO users (name, email, password, role, created_at, updated_at) VALUES (?, ?, ?, ?, NOW(), NOW())",
-        [name, email, hashedPassword, role]
+        [name, email, password, role]
       );
-      return { id: result.insertId, name, email, password: hashedPassword, role };
+      return { id: result.insertId, name, email, password, role };
     },
     addCustomer: async (_, { name, email, phone, address }) => {
       if (!name || !email || !phone || !address) {
@@ -157,7 +156,7 @@ const resolvers = {
     },
 
     createSale: async (_, { user_id, customer_id, items }) => {
-      if (!user_id || !customer_id || !items || !items.length) {
+      if (!user_id || !customer_id || !items?.length) {
         throw new Error("UserId, CustomerId, and sale items are required.");
       }
 

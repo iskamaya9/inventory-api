@@ -71,10 +71,10 @@ CREATE TABLE sale_items (
 
 INSERT INTO users ( name, email, password, role, created_at, updated_at) VALUES
 ( 'Admin Toko', 'admin@toko.com', 'admin123', 'admin', NOW(), NOW()),
-( 'Staff 1', 'staff1@toko.com', 'staff123', 'staff', NOW(), NOW()),
-( 'Staff 2', 'staff2@toko.com', 'staff123', 'staff', NOW(), NOW()),
-( 'Staff 3', 'staff3@toko.com', 'staff123', 'staff', NOW(), NOW()),
-( 'Staff 4', 'staff4@toko.com', 'staff123', 'staff', NOW(), NOW());
+( 'Staff 1', 'staff1@toko.com', 'staff123', 'cashier', NOW(), NOW()),
+( 'Staff 2', 'staff2@toko.com', 'staff123', 'cashier', NOW(), NOW()),
+( 'Staff 3', 'staff3@toko.com', 'staff123', 'cashier', NOW(), NOW()),
+( 'Staff 4', 'staff4@toko.com', 'staff123', 'cashier', NOW(), NOW());
 
 INSERT INTO categories ( name, created_at, updated_at) VALUES
 ( 'Minuman', NOW(), NOW()),
